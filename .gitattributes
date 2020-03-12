@@ -1,2 +1,127 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+/* Example 1 */
+using System;
+
+namespace VariableDefinition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* variable initialization */
+            int a=5, b=3, c;
+
+            /* variable reassignment */
+            a = 10;
+            b = 20;
+            c = a + b;
+
+            Console.WriteLine("a = {0}, b = {1}, c = {2}", a, b, c);
+            Console.ReadLine();
+        }
+    }
+}
+
+/* example 2 */
+using System;
+
+namespace VariableDefinition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int  a = 5, b = 3, c;
+            string person;
+               
+            /* variable reassignment */
+            a = 10;
+            b = 20;
+            c = a + b;
+            person = "Rick";
+
+            Console.WriteLine("a = {0}, b = {1}, c = {2}, person = {3}", a, b, c, person);
+            Console.ReadLine();
+        }
+    }
+}
+
+/* example 3 */
+using System;
+
+namespace VariableDefinition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 5, b = 3, c;
+            string person;
+            double pi = 3.14159;
+	     	 bool   t_or_f = false;
+
+            /* variable reassignment */
+            a = 10;
+            b = 20;
+            c = a + b;
+            person = "Rick";
+
+            Console.WriteLine("a = {0}, b = {1}, c = {2}, person = {3}, pi = {4},t_or_f = {5}", 
+						a, b, c, person, pi, t_or_f);
+            Console.ReadLine();
+        }
+    }
+}
+
+
+/* example 4 */
+using System;
+
+namespace VariableDefinition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 10, b = 20, c0, c1;
+            double c2, c3, c4, c5;
+
+            c0 = b + a;		/* b plus a */
+            c1 = b - a;		/* b minus a */
+            c2 = b / a;		/* b divided by a */
+            c3 = b * a;		/* b times a */
+            c4 = b % a;		/* b mod a */
+            c5 = Math.Pow(b, a);  /* b raised to the a power */
+
+            /* note the use of the string concatenation operator; i.e. the + sign */
+            Console.WriteLine("b+a={0}, b-a={1}, b/a={2}, b*a={3}, b%a={4}, " +
+                                "Math.Pow(b,a)={5}", c0, c1, c2, c3, c4, c5);
+            Console.ReadLine();
+        }
+    }
+}
+
+/* example 5 */
+using System;
+
+namespace VariableDefinition
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 10, b = 20;
+
+            Console.WriteLine("a == b is {0} \n", a == b);  /* a equal to b */
+            Console.WriteLine("a != b is {0} \n", a != b);  /* a not equal to b */
+            Console.WriteLine("a > b is {0} \n", a > b);    /* a greater than b */
+            Console.WriteLine("a < b is {0} \n", a < b);    /* a less than b */
+		 /* a greater than or equal to b */
+            Console.WriteLine("a >= b is {0} \n", a >= b);  
+            Console.WriteLine("a <= b is {0} \n", a <= b);  /* a less than or equal to b */
+
+            Console.ReadLine();
+        }
+    }
+}
