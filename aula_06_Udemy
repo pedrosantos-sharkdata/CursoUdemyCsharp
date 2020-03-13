@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using static System.Convert;
+using static System.Console;
+
+namespace ControlFlow
+{
+    class Program
+    {
+        static void Main(string [] args)
+        {
+            WriteLine("Exemplo de código");
+            Write("Entre com um caracter : ");
+
+
+            char imputChar = System.Convert.ToChar(ReadLine());
+            //definindo os Digitos aceitos para serem reconheciedos
+            char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            //defininfo as vogais a serem aceitas.
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+
+            //controle de fluxo
+            if (vowels.Contains(char.ToLower(imputChar)))
+                //acima ele define que a classe definida 
+                //(volwels > contem > um char que está em minusculo > e que vai ser colcocado por imput )
+            {
+                WriteLine("O Caracter " + imputChar + " eh uma vogal.");
+            }
+            else if (digits.Contains(char.ToLower(imputChar)))
+            {
+                WriteLine("character " + imputChar + " eh um numero.");
+            }
+            else
+            {
+                WriteLine("Caracter " + imputChar + " nao eh uma vogal nem numero");
+            }
+            ReadLine();
+        }
+    }
+}
