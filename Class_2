@@ -1,0 +1,106 @@
+using System;
+using static System.Console;
+
+namespace ClassExample
+{
+    class Person
+    {
+        private string fn;  // first name
+        private string ln;  // last name
+        private DateTime dob;  // date of birth
+        private string g;  // gender
+        private double w;  // weight
+        private double h;  // height 
+
+        /* parameterized constructor w/ optional parameters*/
+        public Person
+            (
+                string FirstName,
+                string LastName,
+                DateTime DateOfBirth,
+                string Gender = "Unknown",
+                double Weight = -1,
+                double Height = -1
+            )
+        {
+            WriteLine("Person Object is being created.");
+            fn = FirstName;
+            ln = LastName;
+            dob = DateOfBirth;
+            g = Gender;
+            w = Weight;
+            h = Height;
+        }
+
+        public string getFirstName()
+        {
+            return fn;
+        }
+
+        public string getLastName()
+        {
+            return ln;
+        }
+
+        public DateTime getDateOfBirth()
+        {
+            return dob;
+        }
+
+        public string getGender()
+        {
+            return g;
+        }
+
+        public double getWeight()
+        {
+            return w;
+        }
+
+        public double getHeight()
+        {
+            return h;
+        }
+
+        private bool IsAFatty()
+        {
+            if (w / h > 2.25)  // encapsulate (hide) this faulty logic
+                return true;
+            else
+                return false;
+        }
+
+        public bool FailsBMI()
+        {
+            return IsAFatty();
+        }
+    }
+
+    class Tester
+    {
+        static void Main(string[] args)
+        {
+            DateTime myBDay = new DateTime(1958, 2, 16);
+            string lgender;
+
+            Person p1 = new Person(FirstName: "Rick", LastName: "Phillips", DateOfBirth: myBDay, Gender: "Male", Weight: 205, Height: 72);
+            Person p2 = new Person(LastName: "Phillips", FirstName: "David", DateOfBirth: myBDay);
+            lgender = p2.getGender();
+
+            WriteLine("{0} {1} weight: {2}, height: {3}, gender: {4}", p2.getFirstName(), p2.getLastName(), p2.getWeight(), p2.getHeight(), p2.getGender());
+
+            if (p2.getWeight() > 0 & p2.getHeight() > 0 & lgender != "Unknown")
+            {
+                if (p2.FailsBMI() & lgender.Equals("Male"))
+                    WriteLine("Needs to increase his exercise or decrease his calories.");
+                else if (p2.FailsBMI() & lgender.Equals("Female"))
+                    WriteLine("Needs to increase her exercise or decrease her calories.");
+                else
+                    WriteLine("Doing great, keep up the good work.");
+            }
+            else
+                WriteLine("BMI information not available.");
+            ReadLine();
+        }
+    }
+}
