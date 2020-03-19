@@ -1,0 +1,46 @@
+using System;
+using static System.Console;
+
+public class ParentClass
+{
+    string parentString;
+
+    public ParentClass()
+    {
+        WriteLine("I am a ParentClass constructor.");
+    }
+
+    public ParentClass(string myString)
+    {
+        parentString = myString;
+        WriteLine("I am an overloaded ParentClass constructor");
+        WriteLine("Just set ParentClass.myString to {0}", parentString);
+    }
+    public void ParentPrint()
+    {
+        WriteLine("I am a ParentClass Method.");
+    }
+}
+
+public class ChildClass : ParentClass
+{
+    public ChildClass() : base("Some String")
+    {
+        WriteLine("I am a ChildCLass constructor.");
+    }
+
+    public void ChildPrint()
+    {
+        WriteLine("I am a ChildClass Method");
+    }
+
+    public static void Main()
+    {
+        ChildClass c1 = new ChildClass();
+
+        c1.ChildPrint();
+        c1.ParentPrint();
+
+        ReadLine();
+    }
+}
