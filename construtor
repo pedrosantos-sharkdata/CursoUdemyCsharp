@@ -1,0 +1,60 @@
+using System;
+using static System.Console;
+
+namespace ClassExample
+{
+    class Person
+    {
+        private string fn;  // first name
+        private string ln;  // last name
+        private DateTime dob;  // date of birth
+        private string g;  // gender
+        private double w;  // weight
+        private double h;  // height 
+
+        /* parameterized constructor with optional parameters and validation */
+        public Person
+            (
+                string FirstName = "Not Specified",
+                string LastName = "Not Specified",
+                DateTime DateOfBirth = default(DateTime),  // 1/1/0001 12:00 AM
+                string Gender = "Unknown",
+                double Weight = -1,
+                double Height = -1
+            )
+        {
+
+            if (FirstName.Equals("Not Specified") || LastName.Equals("Not Specified") ||DateOfBirth == default(DateTime))
+            {
+                // throw an exception here back to calling routine
+                WriteLine("Throwing an exception because a required field was null.");
+                ReadLine();
+                throw new System.ArgumentException("First, Last and DOB may not be null.");
+            }
+            else
+            {
+                WriteLine("Person Object is being created.");
+                fn = FirstName;
+                ln = LastName;
+                dob = DateOfBirth;
+                g = Gender;
+                w = Weight;
+                h = Height;
+            }
+
+        }
+
+        class Tester
+        {
+            static void Main(string[] args)
+            {
+                DateTime myBDay = new DateTime(1958, 2, 16);
+
+                Person p1 = new Person(FirstName: "Rick", LastName: "Phillips",
+                                DateOfBirth: myBDay, Gender: "Male", Weight: 205, Height: 72);
+                Person p2 = new Person(LastName: "Phillips", DateOfBirth: myBDay);
+            }
+        }
+    }
+}
+
